@@ -33,6 +33,10 @@ int main(int argc, char *argv[]) {
     } else if (argc > 1 && strcmp(argv[1], "version") == 0) {
      displayConfig();
 
+    } else if (argc > 1 && strcmp(argv[1], "man") == 0) {
+
+      //nothing for now
+
     }
 
       return 0;
