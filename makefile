@@ -1,8 +1,8 @@
-CC = gcc
-CFLAGS = -Wall
+CC = g++
+CFLAGS = -Wall -lncurses
 BUILD_DIR = bin
-TARGET = ${BUILD_DIR}/pacage
-SRC = main.cpp
+TARGET = $(BUILD_DIR)/Shellman
+SRC = main.cpp fileManager.cpp
 
 # Default target to build the program
 all: $(BUILD_DIR) $(TARGET)
@@ -16,7 +16,7 @@ $(TARGET): $(SRC)
 
 install: $(TARGET)
 	@echo "Installing to /usr/local/bin"
-	mv $(TARGET) /usr/local/bin
+	sudo mv $(TARGET) /usr/local/bin
 
 # Clean up build artifacts
 clean:

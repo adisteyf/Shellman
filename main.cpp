@@ -1,0 +1,30 @@
+#include "fileManager.hpp"
+
+int main(int argc, char *argv[]) {
+    // Check if the correct number of arguments is provided
+
+    if (argc != 3) {
+    std::cout << INFO << "Usage: " << argv[0] << " <arg1> <arg2>" << RESET << std::endl;
+        std::cout << "Use arguments to pass commands" << std::endl;
+        std::cout << "arguments will be parsed\n" << std::endl;
+        std::cout << INFO << "We suggest to visit documentation first: \n" << RESET << std::endl;
+        std::cout << "https://github.com/IvanKoskov/Shellman" << std::endl;
+        return 1;
+    } 
+
+       std::string configFilePath = getConfigFilePath();
+    
+    // Check if the file was created or already exists
+    bool fileCreated = createConfigFileIfNotExist(configFilePath);
+
+    // Final message indicating whether the file was created or exists already
+    if (fileCreated) {
+        std::cout << INFO << "Config file was just created at: " << configFilePath << RESET << std::endl;
+        welcomeMessage();
+    } else {
+        std::cout << INFO << "Config file already exists at: " << configFilePath << RESET << std::endl;
+        welcomeMessage();
+    }
+
+      return 0;
+    }
