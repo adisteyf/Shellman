@@ -8,7 +8,8 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string>
-
+#include "config.hpp"
+#include "help.hpp"
 // Color macros for terminal output
 #define RESET      "\033[0m"     // Back to regular style
 #define GREEN      "\033[32m"    // Green for success or valid messages

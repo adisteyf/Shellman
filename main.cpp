@@ -21,9 +21,18 @@ int main(int argc, char *argv[]) {
     if (fileCreated) {
         std::cout << INFO << "Config file was just created at: " << configFilePath << RESET << std::endl;
         welcomeMessage();
+        return 0;
     } else {
         std::cout << INFO << "Config file already exists at: " << configFilePath << RESET << std::endl;
-        welcomeMessage();
+        
+    }
+
+     if (argc > 1 && strcmp(argv[1], "help") == 0) {
+        helpCommand();
+
+    } else if (argc > 1 && strcmp(argv[1], "version") == 0) {
+     displayConfig();
+
     }
 
       return 0;

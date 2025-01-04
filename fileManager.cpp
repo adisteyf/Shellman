@@ -11,6 +11,7 @@ void welcomeMessage(void) {
     start_color();
     init_pair(1, COLOR_BLUE, COLOR_BLACK);  // Blue text on black background
     init_pair(2, COLOR_YELLOW, COLOR_BLACK);  // Yellow text for the box
+    init_pair(3, COLOR_RED, COLOR_BLACK);  // Red text for the full screen advice
 
     // Get the window size to center the message
     int height, width;
@@ -34,7 +35,7 @@ void welcomeMessage(void) {
     startY += 2;  // Move down
     mvprintw(startY, startX, info.c_str());
 
-    std::string infomore = "Use Shellman with vim and other terminal utilities for productivity!";
+    std::string infomore = "Use Shellman with other utilities for productivity!";
     startY += 2;  // Move down
     mvprintw(startY, startX, infomore.c_str());
 
@@ -42,6 +43,12 @@ void welcomeMessage(void) {
     std::string firstTimeMessage = "This is your first time using Shellman!";
     startY += 2;  // Move down
     mvprintw(startY, startX, firstTimeMessage.c_str());
+
+    // Display the "Full screen is advised" message in red
+    attron(COLOR_PAIR(3));  // Red text for the full screen advice
+    startY += 2;  // Move down
+    mvprintw(startY, startX, "Full screen is ADVISED for optimal experience.");
+    attroff(COLOR_PAIR(3));  // Turn off red color
 
     // Display additional info or instructions
     std::string instructions = "Press any key to continue...";
@@ -84,12 +91,6 @@ void welcomeMessage(void) {
     endwin();
 }
 
-
-
-
-
-
-
 bool createConfigFileIfNotExist(const std::string& filepath) {
     std::ifstream configFile(filepath);
     
@@ -113,3 +114,4 @@ std::string getConfigFilePath() {
     std::string homeDir = getenv("HOME");
     return homeDir + "/Documents/.shellman_config"; // Hidden file with no extension
 }
+
