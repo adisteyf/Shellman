@@ -35,8 +35,9 @@ Designed to be swift and easy to use, Shellman is directly accessed in your term
 
 | **Name OR pseudoname, nickname**            | **Role**                | **GitHub**                                       |
 |---------------------|-------------------------|-------------------------------------------------|
-| **Evan Matthew**    |  Developer          | [@IvanKoskov](https://github.com/IvanKoskov) |
 | **Adk / Adisteyf**      | Developer, helper, contributor         | [@adisteyf](https://github.com/adisteyf)     |
+| **Evan Matthew**    |  Developer          | [@IvanKoskov](https://github.com/IvanKoskov) |
+
 
 ---
 
