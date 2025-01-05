@@ -1,12 +1,14 @@
-# Shellman
+# Shellman file manager
 
-**A sleek, terminal-based file manager for Unix systems** 
-
-Designed to be swift and easy to use, Shellman is directly accessed in your terminal, making file management faster and more efficient without leaving your workspace.
-
----
-
-### Why would you use Shellman??
+<p align="center">
+    <a href="https://github.com/IvanKoskov/Shellman/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/IvanKoskov/Shellman?style=for-the-badge">
+    </a>
+    </br>
+    <img src="https://img.shields.io/github/repo-size/IvanKoskov/Shellman?style=for-the-badge">
+    <img src="https://img.shields.io/depfu/dependencies/github/IvanKoskov/Shellman?style=for-the-badge" alt="">
+</p>
+</br>
 
 1. **Seamless Workflow Integration** 🛠️  
    Easily integrates into your existing terminal-based workflow. Works well alongside tools like *vim*, *nano*, and others.
@@ -32,15 +34,11 @@ Designed to be swift and easy to use, Shellman is directly accessed in your term
 ---
 
 ### Developers 👨‍💻👩‍💻
-
 | **Name OR pseudoname, nickname**            | **Role**                | **GitHub**                                       |
 |---------------------|-------------------------|-------------------------------------------------|
+| **Evan Matthew**    |  Developer          | [@evan-matthew](https://github.com/IvanKoskov) |
 | **Adk / Adisteyf**      | Developer, helper, contributor         | [@adisteyf](https://github.com/adisteyf)     |
-| **Evan Matthew**    |  Developer          | [@IvanKoskov](https://github.com/IvanKoskov) |
-
-
 ---
-
 ### Installation 📦
 
 ```shell
@@ -50,3 +48,5 @@ mkdir build
 cd build
 cmake ..
 make
+```
+
