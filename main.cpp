@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
 
     } else if (argc > 1 && strcmp(argv[1], "man") == 0) {
 
-      //nothing for now
+      initializeWindows();
 
     }
 

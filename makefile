@@ -2,7 +2,7 @@ CC = g++
 CFLAGS = -Wall -lncurses
 BUILD_DIR = bin
 TARGET = $(BUILD_DIR)/Shellman
-SRC = main.cpp fileManager.cpp config.cpp help.cpp
+SRC = main.cpp fileManager.cpp config.cpp help.cpp mainview.cpp
 
 # Default target to build the program
 all: $(BUILD_DIR) $(TARGET)

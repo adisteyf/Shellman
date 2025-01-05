@@ -49,6 +49,7 @@ void helpCommand() {
             "    - Ensure your arguments do not contain spaces unless wrapped in quotes.\n\n",
             "ALL COMMANDS:\n"
             "  help : displays this text and general help\n"
+            "  man : displays the main window and panes\n"
             "  version : displays the metadata of the shellman\n\n",
             "MODES:\n"
             "  GUI like : the main mode that can be entered using certain commands\n"
@@ -129,6 +130,7 @@ void helpCommand() {
         std::cout << "    - Ensure your arguments do not contain spaces unless wrapped in quotes.\n\n";
         std::cout << "ALL COMMANDS:\n";
         std::cout << "  help : displays this text and general help\n";
+        std::cout << "  man : displays the main window and panes\n";
         std::cout << "  version : displays the metadata of the shellman\n\n";
         std::cout << "MODES:\n";
         std::cout << "  GUI like : the main mode that can be entered using certain commands\n";
