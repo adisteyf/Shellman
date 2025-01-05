@@ -7,6 +7,7 @@
     </br>
     <img src="https://img.shields.io/github/repo-size/IvanKoskov/Shellman?style=for-the-badge">
     <img src="https://img.shields.io/depfu/dependencies/github/IvanKoskov/Shellman?style=for-the-badge" alt="">
+    <img src="https://img.shields.io/github/languages/top/IvanKoskov/Shellman?style=for-the-badge" alt="Language Badge">
 </p>
 </br>
 
