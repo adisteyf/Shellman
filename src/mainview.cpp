@@ -94,6 +94,16 @@ void drawMainScreen(int height, int width, const std::string& osInfo, const std:
         mvaddch(i, leftWidth, '|');
     }
 
+    std::string currentPath = "/";
+    std::vector<std::string> directories = getDirectories(currentPath);
+    int selectedIndex = 0;
+
+    // Draw the main screen with the initial tree
+    drawDirectoryTree(height, leftWidth, currentPath, directories, selectedIndex);
+      
+
+
+
     // Draw the bottom pane with dynamic info
     drawBottomPane(height, width, osInfo, username);
 
@@ -121,13 +131,12 @@ void showHelpScreen(int height, int width, const std::string& osInfo, const std:
     refresh();
 }
 
-// Main function to handle the program logic
 void initializeWindows() {
     initscr();               // Start ncurses mode
     noecho();                // Disable echo
     cbreak();                // Disable line buffering
     curs_set(0);             // Hide cursor
-    nodelay(stdscr, TRUE);   // Make getch non-blocking
+    keypad(stdscr, TRUE);    // Enable special keys like arrows
 
     // Get terminal dimensions
     int height, width;
@@ -137,8 +146,14 @@ void initializeWindows() {
     std::string osInfo = getOSInfo();
     std::string username = getlogin();
 
-    // Draw the main screen
+    // Directory navigation variables
+    std::string currentPath = "/";
+    std::vector<std::string> directories = getDirectories(currentPath);
+    int selectedIndex = 0;
+
+    // Initial draw
     drawMainScreen(height, width, osInfo, username);
+    drawDirectoryTree(height, width / 3, currentPath, directories, selectedIndex);
 
     // Main loop
     int ch;
@@ -150,6 +165,35 @@ void initializeWindows() {
             }
             if (ch == 'h') {
                 drawMainScreen(height, width, osInfo, username);
+                drawDirectoryTree(height, width / 3, currentPath, directories, selectedIndex);
+            }
+        } else if (ch == KEY_UP) {
+            // Move selection up
+            if (selectedIndex > 0) {
+                --selectedIndex;
+                drawDirectoryTree(height, width / 3, currentPath, directories, selectedIndex);
+            }
+        } else if (ch == KEY_DOWN) {
+            // Move selection down
+            if (selectedIndex < (int)directories.size() - 1) {
+                ++selectedIndex;
+                drawDirectoryTree(height, width / 3, currentPath, directories, selectedIndex);
+            }
+        } else if (ch == 'd') {
+            // Drill into a directory
+            if (!directories.empty()) {
+                currentPath = fs::path(currentPath) / directories[selectedIndex];
+                directories = getDirectories(currentPath);
+                selectedIndex = 0;
+                drawDirectoryTree(height, width / 3, currentPath, directories, selectedIndex);
+            }
+        } else if (ch == 'b') {
+            // Go back to the parent directory
+            if (currentPath != "/") {
+                currentPath = fs::path(currentPath).parent_path().string();
+                directories = getDirectories(currentPath);
+                selectedIndex = 0;
+                drawDirectoryTree(height, width / 3, currentPath, directories, selectedIndex);
             }
         } else {
             // Update the clock periodically
@@ -160,3 +204,4 @@ void initializeWindows() {
 
     endwin(); // End ncurses mode
 }
+
