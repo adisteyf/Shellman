@@ -2,13 +2,21 @@
 
 <p align="center">
     <a href="https://github.com/IvanKoskov/Shellman/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/IvanKoskov/Shellman?style=for-the-badge">
+        <img src="https://img.shields.io/github/license/IvanKoskov/Shellman?style=for-the-badge">
     </a>
     </br>
     <img src="https://img.shields.io/github/repo-size/IvanKoskov/Shellman?style=for-the-badge">
     <img src="https://img.shields.io/depfu/dependencies/github/IvanKoskov/Shellman?style=for-the-badge" alt="">
+    <img src="https://img.shields.io/github/languages/top/IvanKoskov/Shellman?style=for-the-badge" alt="Language Badge">
+    <a href="https://github.com/IvanKoskov/Shellman/actions">
+        <img src="https://img.shields.io/github/workflow/status/IvanKoskov/Shellman/CI?style=for-the-badge" alt="Build Status">
+    </a>
+    <img src="https://img.shields.io/github/issues/IvanKoskov/Shellman?style=for-the-badge" alt="Issues">
+    <img src="https://img.shields.io/github/issues-pr/IvanKoskov/Shellman?style=for-the-badge" alt="Pull Requests">
+    <img src="https://img.shields.io/github/contributors/IvanKoskov/Shellman?style=for-the-badge" alt="Contributors">
+    <img src="https://img.shields.io/github/last-commit/IvanKoskov/Shellman?style=for-the-badge" alt="Last Commit">
 </p>
-</br>
+
 
 1. **Seamless Workflow Integration** 🛠️  
    Easily integrates into your existing terminal-based workflow. Works well alongside tools like *vim*, *nano*, and others.
