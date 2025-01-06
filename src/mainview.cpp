@@ -51,7 +51,8 @@ void drawDirectoryTree(int height, int leftWidth, const std::string& currentPath
             attroff(A_REVERSE);
         }
     }
-
+  
+  
     refresh();
 }
 
@@ -77,9 +78,10 @@ std::string getOSInfo() {
 void drawBottomPane(int height, int width, const std::string& osInfo, const std::string& username) {
     mvhline(height - 2, 1, '-', width - 2); // Horizontal line
     mvprintw(height - 1, 2, "Press 'q' to quit | Press 'h' for help | %s | %s | %s",
-             osInfo.c_str(), username.c_str(), getCurrentTime().c_str());
+             osInfo.c_str(), username.c_str(), getCurrentTime().c_str()); // Call getCurrentTime() dynamically
     refresh();
 }
+
 
 // Function to draw the main screen
 void drawMainScreen(int height, int width, const std::string& osInfo, const std::string& username) {
@@ -137,6 +139,7 @@ void initializeWindows() {
     cbreak();                // Disable line buffering
     curs_set(0);             // Hide cursor
     keypad(stdscr, TRUE);    // Enable special keys like arrows
+    nodelay(stdscr, TRUE);   // Make getch() non-blocking
 
     // Get terminal dimensions
     int height, width;
@@ -155,9 +158,18 @@ void initializeWindows() {
     drawMainScreen(height, width, osInfo, username);
     drawDirectoryTree(height, width / 3, currentPath, directories, selectedIndex);
 
+    long lastTimeUpdate = 0;  // Track last time update for clock
+
     // Main loop
     int ch;
     while ((ch = getch()) != 'q') {
+        // Update the time every second
+        long currentTime = time(nullptr);
+        if (currentTime - lastTimeUpdate >= 1) { // 1 second interval to update time
+            lastTimeUpdate = currentTime;
+            drawBottomPane(height, width, osInfo, username);
+        }
+
         if (ch == 'h') {
             showHelpScreen(height, width, osInfo, username);
             while ((ch = getch()) != 'h' && ch != 'q') {
@@ -195,11 +207,9 @@ void initializeWindows() {
                 selectedIndex = 0;
                 drawDirectoryTree(height, width / 3, currentPath, directories, selectedIndex);
             }
-        } else {
-            // Update the clock periodically
-            drawBottomPane(height, width, osInfo, username);
-            usleep(500000); // Sleep for 500ms
         }
+
+        usleep(50000); // Small delay for smoother input handling
     }
 
     endwin(); // End ncurses mode
